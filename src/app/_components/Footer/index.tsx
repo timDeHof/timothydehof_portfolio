@@ -6,9 +6,9 @@ import { fetchFooter, fetchGlobals } from '../../_api/fetchGlobals'
 import { ThemeSelector } from '../../_providers/Theme/ThemeSelector'
 import { Gutter } from '../Gutter'
 import { CMSLink } from '../Link'
+import FooterComponent from './FooterComponent'
 
 import classes from './index.module.scss'
-import FooterComponent from './FooterComponent'
 
 export async function Footer() {
   let footer: Footer | null = null

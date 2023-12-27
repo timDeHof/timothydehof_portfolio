@@ -6,11 +6,11 @@ import { usePathname } from 'next/navigation'
 
 import { Footer, Media } from '../../../../payload/payload-types'
 import { noHeaderFooterURLs, services } from '../../../_components/constants'
+import { ThemeSelector } from '../../../_providers/Theme/ThemeSelector'
 import { Button } from '../../Button'
 import { Gutter } from '../../Gutter'
 
 import classes from './index.module.scss'
-import { ThemeSelector } from '../../../_providers/Theme/ThemeSelector'
 const FooterComponent = ({ footer }: { footer: Footer }) => {
   const pathname = usePathname()
   const navItems = footer?.navItems || []
@@ -45,8 +45,7 @@ const FooterComponent = ({ footer }: { footer: Footer }) => {
                 className={classes.logo}
               />
             </Link>
-            <p>{footer?.copyright}</p>
-            <ThemeSelector />
+            <p className={classes.copyright}>{footer?.copyright}</p>
             <div className={classes.socialLinks}>
               {navItems.map(item => {
                 const icon = item?.link.icon as Media
@@ -62,6 +61,7 @@ const FooterComponent = ({ footer }: { footer: Footer }) => {
                   </Button>
                 )
               })}
+              <ThemeSelector />
             </div>
           </div>
         </Gutter>
